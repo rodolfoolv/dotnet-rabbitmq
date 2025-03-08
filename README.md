@@ -29,7 +29,7 @@ dotnet run
 
 ## Requirements
 
-- [.NET Core 6.0](https://dotnet.microsoft.com/download/dotnet-core/6.0)
+- [.NET Core 8.0](https://dotnet.microsoft.com/download/dotnet-core/8.0)
 - [Docker](https://www.docker.com/products/docker-desktop)
 
 ## Usage
