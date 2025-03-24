@@ -29,7 +29,7 @@ namespace API.Application.Services
             _productRepository.Create(product);
             await _unitOfWork.SaveChangesAsync();
 
-            _rabbitMqProducer.Publish(product);
+            await _rabbitMqProducer.Publish(product);
 
             return _mapper.Map<ProductResponse>(product);
         }

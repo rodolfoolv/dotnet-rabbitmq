@@ -2,6 +2,6 @@
 {
     public interface IRabbitMqProducer
     {
-        void Publish<T>(T message) where T : class;
+        Task Publish<T>(T message) where T : class;
     }
 }
