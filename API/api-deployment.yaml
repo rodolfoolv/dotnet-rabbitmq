@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: mykubeapi:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: RABBITMQ_CONNECTION
+          value: "rabbitmq://rabbitmq:5672"

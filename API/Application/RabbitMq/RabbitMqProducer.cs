@@ -9,7 +9,7 @@ namespace API.Application.RabbitMq
             public async Task Publish<T>(T message) where T : class
             {
 
-                var factory = new ConnectionFactory { HostName = "localhost" };
+                var factory = new ConnectionFactory { HostName = "rabbitmq:5672" };
                 using var connection = await factory.CreateConnectionAsync();
                 using var channel = await connection.CreateChannelAsync(); 
                 await channel.QueueDeclareAsync("product", exclusive: false);

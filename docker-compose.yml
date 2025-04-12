@@ -9,3 +9,19 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+
+  api:
+    build:
+      context: .
+      dockerfile: ./API/Dockerfile  # Caminho correto para o Dockerfile da API
+    ports:
+      - "5000:80"
+    depends_on:
+      - rabbitmq
+
+  console:
+    build:
+      context: .
+      dockerfile: ./Consumer.Console/Dockerfile  # Caminho correto para o Dockerfile do Console
+    depends_on:
+      - rabbitmq
